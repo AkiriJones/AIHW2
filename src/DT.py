@@ -149,7 +149,6 @@ if __name__ == '__main__':
 
                 second_index = local_gains.index(max(local_gains))
                 print(f"  -> Best Split: A{second_index + 1}")
-                branch2 = max(["True", "False"])
                 for val in ["True", "False"]:
                     leaf_ids = [k for k, v in attList[second_index].items()
                                 if v == val and k in subset_ids]
