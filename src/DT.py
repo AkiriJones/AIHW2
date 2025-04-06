@@ -147,15 +147,15 @@ if __name__ == '__main__':
                 gain = info_subset_gain(filtered_att, subset_a, subset_b)
                 local_gains.append(gain)
 
-                second_index = local_gains.index(max(local_gains))
-                print(f"  -> Best Split: A{second_index + 1}")
-                for val in ["True", "False"]:
-                    leaf_ids = [k for k, v in attList[second_index].items()
-                                if v == val and k in subset_ids]
-                    leaf_A = class_A.intersection(leaf_ids)
-                    leaf_B = class_B.intersection(leaf_ids)
-                    prediction = majority_class(leaf_A, leaf_B)
-                    print(f"    If A{second_index + 1} = {val} -> Predict {prediction}")
+            second_index = local_gains.index(max(local_gains))
+            print(f"  -> Best Split: A{second_index + 1}")
+            for val in ["True", "False"]:
+                leaf_ids = [k for k, v in attList[second_index].items()
+                            if v == val and k in subset_ids]
+                leaf_A = class_A.intersection(leaf_ids)
+                leaf_B = class_B.intersection(leaf_ids)
+                prediction = majority_class(leaf_A, leaf_B)
+                print(f"    If A{second_index + 1} = {val} -> Predict {prediction}")
 
         # for att in attList:
         #     print(att)
